@@ -1,0 +1,108 @@
+FORMAS DE USAR REACT 
+
+1. usando los comandos de npm install de browserify  (offline) 
+
+Nota: no funciona bien en windows 10
+
+2. usando los cdns de react y de babel  (online)
+
+3. Usando los comandos de npm -install de babel  (offline) 
+
+
+------------ 1. usando los comandos de npm install de browserify (offline)  -----------------------
+
+ir a la terminar y ubicarnos en la carpeta donde estemos trabajarnos y ejecutar los siguientes comandos:
+
+npm install --save react react-dom babelify babel-preset-react
+
+npm install browserify 
+
+hasta aqui si no ocurrio error con la ejecucion de los comandos anteriores ahora crearemos una archivo javascript el cual se va a empezar a trabajar, y tambien veremos que en la ruta donde ejecutamos los comandos ateriores se creo una carpeta llamada node_modules donde estan todas las librerias que necesitamos de reacJs 
+
+crearemos una archivo javascript y le colocaremos el siguiente codigo
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+
+npm browserify  
+
+NOTA:
+ si no se reconoce el comando de browserify debemos hacer la instalacion de browserify con el parametro-g para que lo instale de manera global para que este disponible en cualquier ventana
+
+npm install -g browserify 
+
+Nota lo siguiente que se tiene que hacer es 
+
+npm browserify -t [babelify --presets [ react ] ] main.js -o bundle.js 
+
+
+
+----------- 2. usando los cdns de react y de babel (online) -------------------------
+
+
+crear el archivo html que vayamos a usar y agregarle los cdns de reacjs y un cdn de babel 
+
+
+Los cdns de react se encuentran en la siguiente pagina:
+
+http://reactjs.cn/downloads.html
+
+CDNS reacJs
+
+<script src="https://npmcdn.com/react@15.3.1/dist/react-with-addons.min.js"></script>
+<script src="https://npmcdn.com/react-dom@15.3.1/dist/react-dom.min.js"></script>
+
+
+El cdn de babel se encuentra en la siguiente pagina :
+
+https://cdnjs.com/libraries/babel-core/5.8.23
+
+CDN babel 
+
+https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js
+
+
+despues de haber incluido los cdns de reactJs y babel debemos de incluir en nuestro script js donde vayamos a 
+programar con react que sea de tipo  type="text/babel" ejemplo:
+
+<script type="text/babel" src="saludo.js" ></script>
+
+
+
+------------------ 3. Usando los comandos de npm -install de babel (offline)  ----------------------
+
+agregar en nuestro archivo htmll las cdns de react y babel
+
+<script src="https://npmcdn.com/react@15.3.1/dist/react-with-addons.min.js"></script>
+<script src="https://npmcdn.com/react-dom@15.3.1/dist/react-dom.min.js"></script>
+
+https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js
+
+
+ir a la terminar y ubicarnos en la carpeta donde estemos trabajarnos y ejecutar los siguientes comandos:
+
+npm install -g babel-cli 
+
+npm install babel-preset-react 
+
+Nota: 
+
+este ultimo comando descargará el paquete de modulos de react js, el cual es una carpeta que se llama node_modules que se creará en nuestra carpeta de proyecto
+
+
+Lo siguiente sera indicarle a babel que escuche cada cambio que hagamos de nuestro archivo javascript donde estemos programando con REACJS el cual en el ejemplo de del comando siguiente se le indica que se encuentra dentro de una carpeta llamada src y que lo este escuchando. Y ademas debemos indicarle una salida para que babel convierta ese codigo con sintaxis JSX de nuestro archivo javascript a codigo javascript que lo pueda entender el navegador por lo cual se coloca "--out-dir build" que quiere decir que se va a tener como salida el nuevo archivo a la carpeta build 
+
+babel --presets react src --watch --out-dir build 
+
+Nota:
+una vez ejecutado el comando anterior se ejecutara un servicio que hara la consola se quedará escuchando los cambios que le hagamos al archivo js
+
+
+solo faltará apuntar a nuestro script  al nuevo archivo que se genero en la carpeta build 
+
+y ya llegados a este punto podemos quitar la cdn de babel de nuestro archivo html ya que ya no nos hará falta 
+
+
+
+
